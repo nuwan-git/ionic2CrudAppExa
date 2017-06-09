@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Add New Job
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<form [formGroup]="add">
+
+    <ion-list>
+
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" name="name" id="name" formControlName="name" >
+    <div *ngIf = "form.controls.name.errors?.pattern" class="error">
+        Name has  Invalid charactor
+    </div>
+     </ion-input>   
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Description</ion-label>
+    <ion-input type="text" name="description" id="description" formControlName="description" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Value</ion-label>
+    <ion-input type="text" name="value" id="value" formControlName="value" ></ion-input>
+  </ion-item>
+
+  <div class="submitBtn">
+  <!--<button ion-button full type="button" (click)="onSubmit()" color="energized" >Insert</button>-->
+  <button ion-button type="submit" (click)="onSubmitClick()" [disabled]="!add.valid" >Save</button>
+</div>
+
+</ion-list>
+</form>
+</ion-content>
